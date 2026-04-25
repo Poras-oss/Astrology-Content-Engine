@@ -13,6 +13,20 @@
   },
   "tweets": [
     {
+      "id": "1777148148226",
+      "content": "Refactored my Astrology Content Engine's pipeline with a fresh script from Claude. Replaced 87 lines of code with 82 new ones, making my viral horoscope generator more efficient and accurate. Less code, more cosmic insights",
+      "source": "commit",
+      "sourceDetail": "added complete script from claude",
+      "createdAt": "2026-04-25T20:15:48.226Z",
+      "publish": false,
+      "scheduledAt": null,
+      "tags": [
+        "buildinpublic",
+        "coding"
+      ],
+      "characterCount": 223
+    },
+    {
       "id": "1777147743107",
       "content": "Spent the night fixing a pesky bug in my Astrology Content Engine. Now, the daily horoscope reel pipeline runs smoothly, generating 760+ lines of Python code to serve up personalized astrology content to users.\" #AstrologyContentEngine",
       "source": "commit",
