@@ -1,0 +1,35 @@
+# Secrets and local environment
+.env
+.env.*
+!.env.example
+
+App.py
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Node / Remotio n
+node_modules/
+remotion_reel/node_modules/
+remotion_reel/node_modules/.cache/
+remotion_reel/node_modules/.remotion/
+npm-debug.log*
+
+# Generated content
+generated_reels/
+astro_posts/
+remotion_reel/generated_reels/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

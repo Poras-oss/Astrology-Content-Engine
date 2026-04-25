@@ -1,0 +1,328 @@
+{
+  "generated_at": "2026-04-25T23:17:04",
+  "theme_request": "",
+  "meta": {
+    "title": "Magnetic Truths Revealed",
+    "hook": "The one thing you're hiding from yourself",
+    "theme": "A deep dive into the private emotions and magnetic self-respect that drive your inner narrative",
+    "caption_hook": "What if the most powerful force in your life is the one you're trying to silence?",
+    "caption_body": "This week, we're exploring the unseen patterns that shape your relationships, desires, and sense of self-worth. From the ways you prioritize your own needs to the secrets you keep from others, we're shining a light on the magnetic truths that make you, you. Whether you're a hopeless romantic or a solo explorer, get ready to confront the private emotions and desires that drive your every move.",
+    "cta": "Save this post and share with a friend who needs to see themselves in a new light",
+    "audio_direction": " Moody, atmospheric soundscapes with a hint of tension",
+    "cover_text": "Your Deepest Truth"
+  },
+  "signs": [
+    {
+      "sign": "Aries",
+      "element": "Fire",
+      "symbol": "Ram",
+      "palette": [
+        "#2A0F14",
+        "#7A1C2B",
+        "#FF7A59"
+      ],
+      "theme": "Fearless Self-Respect",
+      "private_truth": "You're more vulnerable than you let on, and that's your greatest strength",
+      "tension": "Your need for control is at war with your desire for authentic connection",
+      "shift": "It's time to let your guard down and trust that your worth isn't defined by your accomplishments",
+      "screenshot_line": "My worth isn't up for debate",
+      "share_line": "Who else is tired of pretending to have it all together?",
+      "reel_lines": [
+        "What's the one thing you're afraid to say out loud?",
+        "What's the biggest risk you've ever taken?",
+        "What's the one thing you wish you could tell your younger self?"
+      ],
+      "keywords": [
+        "confidence",
+        "vulnerability",
+        "self-worth"
+      ]
+    },
+    {
+      "sign": "Taurus",
+      "element": "Earth",
+      "symbol": "Bull",
+      "palette": [
+        "#0E221B",
+        "#23573A",
+        "#E8C16B"
+      ],
+      "theme": "Sensual Boundaries",
+      "private_truth": "You're craving deeper intimacy, but your fear of rejection is holding you back",
+      "tension": "Your desire for stability is at odds with your need for emotional excitement",
+      "shift": "It's time to communicate your desires and boundaries clearly, and trust that your worth isn't defined by your relationships",
+      "screenshot_line": "I deserve pleasure and respect",
+      "share_line": "Who else is ready to prioritize their own desires and needs?",
+      "reel_lines": [
+        "What's the biggest misconception about your sign?",
+        "What's the one thing you wish you could tell your partner?",
+        "What's the most sensual experience you've ever had?"
+      ],
+      "keywords": [
+        "intimacy",
+        "boundaries",
+        "desire"
+      ]
+    },
+    {
+      "sign": "Gemini",
+      "element": "Air",
+      "symbol": "Twins",
+      "palette": [
+        "#111827",
+        "#224E88",
+        "#7ED7F7"
+      ],
+      "theme": "Curious Avoidance",
+      "private_truth": "You're afraid of being tied down, but deep down, you're craving meaningful connection",
+      "tension": "Your need for freedom is at war with your desire for intellectual stimulation and connection",
+      "shift": "It's time to explore your fears and desires, and trust that you can have both independence and intimacy",
+      "screenshot_line": "I'm not afraid to get a little messy",
+      "share_line": "Who else is tired of being labeled as 'flighty' or 'unreliable'?",
+      "reel_lines": [
+        "What's the most spontaneous thing you've ever done?",
+        "What's the one thing you're afraid to commit to?",
+        "What's the biggest misconception about your sign?"
+      ],
+      "keywords": [
+        "curiosity",
+        "avoidance",
+        "connection"
+      ]
+    },
+    {
+      "sign": "Cancer",
+      "element": "Water",
+      "symbol": "Crab",
+      "palette": [
+        "#0F1A2E",
+        "#284B8A",
+        "#B9D8FF"
+      ],
+      "theme": "Nurturing Ambition",
+      "private_truth": "You're more driven than you let on, and your emotions are the key to unlocking your success",
+      "tension": "Your need for security is at odds with your desire for creative expression and recognition",
+      "shift": "It's time to trust your intuition and prioritize your own needs, and watch your ambitions thrive",
+      "screenshot_line": "My emotions are my superpower",
+      "share_line": "Who else is ready to prioritize their own needs and desires?",
+      "reel_lines": [
+        "What's the one thing you're most proud of?",
+        "What's the biggest risk you've ever taken?",
+        "What's the most nurturing thing you can do for yourself?"
+      ],
+      "keywords": [
+        "ambition",
+        "nurturing",
+        "emotions"
+      ]
+    },
+    {
+      "sign": "Leo",
+      "element": "Fire",
+      "symbol": "Lion",
+      "palette": [
+        "#2A1405",
+        "#8A430F",
+        "#FFC145"
+      ],
+      "theme": "Confident Softness",
+      "private_truth": "You're more sensitive than you let on, and that's what makes you truly powerful",
+      "tension": "Your need for validation is at war with your desire for authentic connection and vulnerability",
+      "shift": "It's time to let your guard down and trust that your worth isn't defined by external validation",
+      "screenshot_line": "I'm not afraid to show my soft side",
+      "share_line": "Who else is tired of pretending to be invincible?",
+      "reel_lines": [
+        "What's the one thing you're afraid to show the world?",
+        "What's the biggest misconception about your sign?",
+        "What's the most confident thing you can do for yourself?"
+      ],
+      "keywords": [
+        "confidence",
+        "softness",
+        "vulnerability"
+      ]
+    },
+    {
+      "sign": "Virgo",
+      "element": "Earth",
+      "symbol": "Maiden",
+      "palette": [
+        "#152018",
+        "#45634C",
+        "#DCE8B4"
+      ],
+      "theme": "Practical Romantics",
+      "private_truth": "You're a hopeless romantic at heart, but your fear of imperfection is holding you back",
+      "tension": "Your need for control is at odds with your desire for spontaneous connection and intimacy",
+      "shift": "It's time to let go of your need for perfection and trust that your worth isn't defined by your relationships",
+      "screenshot_line": "I'm worthy of love and imperfection",
+      "share_line": "Who else is ready to prioritize their own heart's desires?",
+      "reel_lines": [
+        "What's the one thing you're most self-critical about?",
+        "What's the biggest misconception about your sign?",
+        "What's the most romantic thing you can do for yourself?"
+      ],
+      "keywords": [
+        "romance",
+        "perfectionism",
+        "self-worth"
+      ]
+    },
+    {
+      "sign": "Libra",
+      "element": "Air",
+      "symbol": "Scales",
+      "palette": [
+        "#1D1424",
+        "#6E4A8C",
+        "#F5B8E8"
+      ],
+      "theme": "Social Longing",
+      "private_truth": "You're craving deeper connections, but your fear of rejection is holding you back",
+      "tension": "Your need for harmony is at war with your desire for authenticity and self-expression",
+      "shift": "It's time to prioritize your own needs and desires, and trust that you can have both social connection and personal growth",
+      "screenshot_line": "I deserve to be seen and heard",
+      "share_line": "Who else is tired of people-pleasing and ready to prioritize their own needs?",
+      "reel_lines": [
+        "What's the one thing you're most afraid to say out loud?",
+        "What's the biggest misconception about your sign?",
+        "What's the most social thing you can do for yourself?"
+      ],
+      "keywords": [
+        "longing",
+        "social connection",
+        "authenticity"
+      ]
+    },
+    {
+      "sign": "Scorpio",
+      "element": "Water",
+      "symbol": "Scorpion",
+      "palette": [
+        "#120A19",
+        "#4C1D5F",
+        "#FF6AA2"
+      ],
+      "theme": "Passionate Grief",
+      "private_truth": "You're still carrying around unresolved emotions, and it's time to confront them head-on",
+      "tension": "Your need for control is at odds with your desire for vulnerability and healing",
+      "shift": "It's time to trust that your emotions are valid and worthy of exploration, and that you can emerge stronger and wiser",
+      "screenshot_line": "I'm not afraid to face my shadows",
+      "share_line": "Who else is ready to confront their deepest fears and desires?",
+      "reel_lines": [
+        "What's the one thing you're most afraid to confront?",
+        "What's the biggest misconception about your sign?",
+        "What's the most powerful thing you can do for yourself?"
+      ],
+      "keywords": [
+        "grief",
+        "vulnerability",
+        "healing"
+      ]
+    },
+    {
+      "sign": "Sagittarius",
+      "element": "Fire",
+      "symbol": "Archer",
+      "palette": [
+        "#1C1222",
+        "#6441A5",
+        "#FFB86B"
+      ],
+      "theme": "Adventurous Avoidance",
+      "private_truth": "You're afraid of being tied down, but deep down, you're craving meaningful connection and roots",
+      "tension": "Your need for freedom is at war with your desire for intellectual stimulation and connection",
+      "shift": "It's time to explore your fears and desires, and trust that you can have both independence and intimacy",
+      "screenshot_line": "I'm not afraid to get a little rooted",
+      "share_line": "Who else is tired of being labeled as 'restless' or 'unreliable'?",
+      "reel_lines": [
+        "What's the most spontaneous thing you've ever done?",
+        "What's the one thing you're afraid to commit to?",
+        "What's the biggest misconception about your sign?"
+      ],
+      "keywords": [
+        "avoidance",
+        "connection",
+        "roots"
+      ]
+    },
+    {
+      "sign": "Capricorn",
+      "element": "Earth",
+      "symbol": "Sea Goat",
+      "palette": [
+        "#141414",
+        "#434343",
+        "#E6D3A3"
+      ],
+      "theme": "Ambitious Softening",
+      "private_truth": "You're more emotional than you let on, and that's what makes you truly powerful",
+      "tension": "Your need for control is at odds with your desire for vulnerability and connection",
+      "shift": "It's time to trust that your emotions are valid and worthy of exploration, and that you can emerge stronger and wiser",
+      "screenshot_line": "I'm not afraid to show my emotions",
+      "share_line": "Who else is ready to prioritize their own heart's desires and emotional well-being?",
+      "reel_lines": [
+        "What's the one thing you're most afraid to show the world?",
+        "What's the biggest misconception about your sign?",
+        "What's the most confident thing you can do for yourself?"
+      ],
+      "keywords": [
+        "ambition",
+        "softening",
+        "vulnerability"
+      ]
+    },
+    {
+      "sign": "Aquarius",
+      "element": "Air",
+      "symbol": "Water Bearer",
+      "palette": [
+        "#0A1A22",
+        "#0F6E7A",
+        "#95F3FF"
+      ],
+      "theme": "Humanitarian Confidence",
+      "private_truth": "You're a true original, but your fear of being different is holding you back",
+      "tension": "Your need for independence is at war with your desire for social connection and validation",
+      "shift": "It's time to trust that your uniqueness is your greatest strength, and that you can make a real difference in the world",
+      "screenshot_line": "I'm not afraid to be myself",
+      "share_line": "Who else is ready to prioritize their own individuality and creativity?",
+      "reel_lines": [
+        "What's the one thing you're most proud of?",
+        "What's the biggest misconception about your sign?",
+        "What's the most humanitarian thing you can do for yourself?"
+      ],
+      "keywords": [
+        "confidence",
+        "humanitarianism",
+        "individuality"
+      ]
+    },
+    {
+      "sign": "Pisces",
+      "element": "Water",
+      "symbol": "Fish",
+      "palette": [
+        "#140F24",
+        "#3D2C78",
+        "#9BC8FF"
+      ],
+      "theme": "Dreamy Boundaries",
+      "private_truth": "You're more resilient than you think, and it's time to set boundaries and prioritize your own needs",
+      "tension": "Your need for connection is at odds with your desire for independence and self-protection",
+      "shift": "It's time to trust that your worth isn't defined by your relationships, and that you can have both intimacy and autonomy",
+      "screenshot_line": "I'm worthy of love and respect",
+      "share_line": "Who else is ready to prioritize their own emotional well-being and set healthy boundaries?",
+      "reel_lines": [
+        "What's the one thing you're most afraid to say out loud?",
+        "What's the biggest misconception about your sign?",
+        "What's the most dreamy thing you can do for yourself?"
+      ],
+      "keywords": [
+        "boundaries",
+        "resilience",
+        "self-worth"
+      ]
+    }
+  ]
+}

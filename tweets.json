@@ -1,0 +1,44 @@
+{
+  "_comment": "DevTweet - Set publish: true and scheduledAt to queue your tweets",
+  "_schema": {
+    "id": "Unique tweet ID",
+    "content": "Tweet text (max 280 chars)",
+    "source": "Where this tweet was generated from: commit | diff | daily | manual",
+    "sourceDetail": "Human-readable source description",
+    "createdAt": "ISO timestamp when generated",
+    "publish": "Set to true to mark for publishing",
+    "scheduledAt": "Optional ISO datetime to schedule: '2024-01-15T09:00:00Z'",
+    "publishedAt": "Filled when actually published",
+    "tags": "Relevant tags for organization"
+  },
+  "tweets": [
+    {
+      "id": "1777145177118",
+      "content": "Simplified my Astrology Content Engine by removing unnecessary app code, cutting 1265 lines in one commit. Now my engine is leaner and focused on generating tweets from data in tweets.json.\" #AstrologyDev",
+      "source": "commit",
+      "sourceDetail": "removed app",
+      "createdAt": "2026-04-25T19:26:17.118Z",
+      "publish": false,
+      "scheduledAt": null,
+      "tags": [
+        "buildinpublic",
+        "coding"
+      ],
+      "characterCount": 204
+    },
+    {
+      "id": "1777145120336",
+      "content": "Cleaning up the Astrology-Content-Engine codebase, one file at a time. Updated .gitignore to keep our project organized and focused on what matters - generating astrology content for users.\" #AstrologyCode",
+      "source": "commit",
+      "sourceDetail": ".",
+      "createdAt": "2026-04-25T19:25:20.336Z",
+      "publish": false,
+      "scheduledAt": null,
+      "tags": [
+        "buildinpublic",
+        "coding"
+      ],
+      "characterCount": 205
+    }
+  ]
+}
