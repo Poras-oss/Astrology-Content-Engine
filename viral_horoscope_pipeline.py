@@ -617,6 +617,7 @@ def render_reel(bundle_path: Path, output_file: Path | None = None) -> Path:
     bundle = json.loads(bundle_path.read_text(encoding="utf-8"))
     if output_file is None:
         output_file = bundle_path.parent / "horoscope_reel.mp4"
+    output_file = output_file.resolve()
 
     render_bundle_path = remotion_dir / "src" / "data" / "render-bundle.json"
     render_bundle_path.parent.mkdir(parents=True, exist_ok=True)
