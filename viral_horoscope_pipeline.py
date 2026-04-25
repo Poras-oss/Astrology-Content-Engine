@@ -18,8 +18,7 @@ Usage:
 """
 
 from __future__ import annotations
-import hashlib
-import hmac
+
 import argparse
 import datetime as dt
 import json
@@ -27,9 +26,7 @@ import os
 import re
 import shutil
 import subprocess
-import sys
 import time
-import requests
 from pathlib import Path
 from typing import Any
 
@@ -73,11 +70,12 @@ def load_dotenv(path: Path) -> dict[str, str]:
     return env
 
 
-def get_env(key: str) -> str:
-    val = os.environ.get(key, "").strip()
-    if not val:
-        raise RuntimeError(f"Missing environment variable: {key}")
-    return val
+def _get_env(keys: list[str], local_env: dict[str, str]) -> str:
+    for key in keys:
+        val = os.getenv(key) or local_env.get(key, "")
+        if val:
+            return val
+    return ""
 
 
 def get_groq_api_key() -> str:
@@ -308,70 +306,6 @@ Your output must be:
 # ---------------------------------------------------------------------------
 # Bundle normalisation
 # ---------------------------------------------------------------------------
-
-
-def generate_signature(params: dict[str, str], api_secret: str) -> str:
-    """
-    Cloudinary signature: SHA-1 of alphabetically sorted param string + secret.
-    Exclude `file`, `api_key`, and `resource_type` from the signed string.
-    """
-    excluded = {"file", "api_key", "resource_type"}
-    sorted_pairs = sorted(
-        f"{k}={v}" for k, v in params.items() if k not in excluded
-    )
-    to_sign = "&".join(sorted_pairs) + api_secret
-    return hashlib.sha1(to_sign.encode("utf-8")).hexdigest()
- 
- 
-def upload_video(file_path: str) -> str:
-    """
-    Upload a video to Cloudinary using the authenticated upload API.
-    Returns the secure public URL (https://...).
-    """
-    cloud_name = get_env("CLOUDINARY_CLOUD_NAME")
-    api_key    = get_env("CLOUDINARY_API_KEY")
-    api_secret = get_env("CLOUDINARY_API_SECRET")
- 
-    timestamp  = str(int(time.time()))
-    folder     = "horoscope_reels"
- 
-    # Parameters to sign (no `file`, `api_key`, `resource_type`)
-    params_to_sign: dict[str, str] = {
-        "folder":    folder,
-        "timestamp": timestamp,
-    }
- 
-    signature = generate_signature(params_to_sign, api_secret)
- 
-    upload_url = f"https://api.cloudinary.com/v1_1/{cloud_name}/video/upload"
- 
-    with open(file_path, "rb") as video_file:
-        response = requests.post(
-            upload_url,
-            data={
-                "api_key":   api_key,
-                "timestamp": timestamp,
-                "signature": signature,
-                "folder":    folder,
-            },
-            files={"file": video_file},
-            timeout=300,  # 5-minute timeout for large video uploads
-        )
- 
-    if not response.ok:
-        try:
-            err = response.json()
-        except Exception:
-            err = response.text
-        raise RuntimeError(f"Cloudinary upload failed {response.status_code}: {err}")
- 
-    data = response.json()
-    secure_url = data.get("secure_url")
-    if not secure_url:
-        raise RuntimeError(f"Cloudinary returned no secure_url: {data}")
- 
-    return secure_url
-
 
 def ensure_three_lines(sign: dict[str, Any]) -> list[str]:
     raw_lines = sign.get("reel_lines", [])
@@ -783,19 +717,65 @@ def cleanup_generated_outputs(bundle_path: Path) -> None:
 # ---------------------------------------------------------------------------
 
 def main() -> None:
-    if len(sys.argv) < 2:
-        print("Usage: python upload_to_cloudinary.py <path_to_video.mp4>", file=sys.stderr)
-        sys.exit(1)
- 
-    file_path = sys.argv[1]
-    if not os.path.isfile(file_path):
-        print(f"File not found: {file_path}", file=sys.stderr)
-        sys.exit(1)
- 
-    # Print ONLY the URL to stdout so the workflow can capture it cleanly
-    url = upload_video(file_path)
-    print(url)
- 
- 
+    parser = argparse.ArgumentParser(
+        description="Generate all-sign horoscope content and optional Remotion reel."
+    )
+    parser.add_argument("--generate",     action="store_true", help="Generate a fresh horoscope content bundle.")
+    parser.add_argument("--render",       action="store_true", help="Render a reel using Remotion.")
+    parser.add_argument("--post",         action="store_true", help="Post the rendered reel to Instagram via Meta Graph API.")
+    parser.add_argument("--cleanup",      action="store_true", help="Delete generated local outputs after a successful post.")
+    parser.add_argument("--input",        type=str,            help="Path to an existing horoscope_bundle.json for rendering/posting.")
+    parser.add_argument("--theme",        type=str,            help="Optional custom theme to push the content direction.")
+    parser.add_argument(
+        "--video-url",
+        type=str,
+        help=(
+            "Publicly accessible HTTPS URL of the MP4 to post (required with --post). "
+            "Upload your local render to S3 / R2 / Cloudinary first, then supply the URL."
+        ),
+    )
+    parser.add_argument(
+        "--output-root",
+        type=str,
+        default="generated_reels",
+        help="Directory where generated bundles are stored.",
+    )
+    args = parser.parse_args()
+
+    output_root  = Path(args.output_root)
+    bundle_path: Path | None  = None
+    output_file: Path | None  = None
+
+    if args.generate:
+        bundle_path = generate_content(args.theme, output_root)
+        print(f"Generated content bundle: {bundle_path}")
+
+    if args.input:
+        bundle_path = Path(args.input)
+
+    if args.render:
+        if bundle_path is None:
+            raise RuntimeError("Provide --input or combine --generate --render.")
+        output_file = render_reel(bundle_path)
+        print(f"Rendered reel: {output_file}")
+
+    if args.post:
+        if bundle_path is None:
+            raise RuntimeError("Provide --input or combine --generate --post.")
+        if not args.video_url:
+            raise RuntimeError(
+                "--video-url is required with --post.\n"
+                "Upload your MP4 to a public URL (S3, R2, Cloudinary, etc.) first, then re-run with --video-url <url>."
+            )
+        post_id = post_reel(bundle_path, args.video_url)
+        print(f"Published Instagram reel: {post_id}")
+        if args.cleanup:
+            cleanup_generated_outputs(bundle_path)
+            print(f"Deleted local output directory: {bundle_path.parent}")
+
+    if not args.generate and not args.render and not args.post:
+        parser.print_help()
+
+
 if __name__ == "__main__":
     main()

@@ -13,6 +13,21 @@
   },
   "tweets": [
     {
+      "id": "1777147743107",
+      "content": "Spent the night fixing a pesky bug in my Astrology Content Engine. Now, the daily horoscope reel pipeline runs smoothly, generating 760+ lines of Python code to serve up personalized astrology content to users.\" #AstrologyContentEngine",
+      "source": "commit",
+      "sourceDetail": "fixed from claude",
+      "createdAt": "2026-04-25T20:09:03.107Z",
+      "publish": false,
+      "scheduledAt": null,
+      "tags": [
+        "buildinpublic",
+        "coding",
+        "bugfix"
+      ],
+      "characterCount": 235
+    },
+    {
       "id": "1777146495750",
       "content": "Simplified reel rendering in Astrology-Content-Engine by fixing a wonky workflow path. Now, generating horoscope content for users is smoother and more efficient. #AstrologyTech",
       "source": "commit",
