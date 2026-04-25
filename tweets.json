@@ -13,6 +13,21 @@
   },
   "tweets": [
     {
+      "id": "1777146495750",
+      "content": "Simplified reel rendering in Astrology-Content-Engine by fixing a wonky workflow path. Now, generating horoscope content for users is smoother and more efficient. #AstrologyTech",
+      "source": "commit",
+      "sourceDetail": "fixed workflow path of reel",
+      "createdAt": "2026-04-25T19:48:15.750Z",
+      "publish": false,
+      "scheduledAt": null,
+      "tags": [
+        "buildinpublic",
+        "coding",
+        "bugfix"
+      ],
+      "characterCount": 177
+    },
+    {
       "id": "1777145177118",
       "content": "Simplified my Astrology Content Engine by removing unnecessary app code, cutting 1265 lines in one commit. Now my engine is leaner and focused on generating tweets from data in tweets.json.\" #AstrologyDev",
       "source": "commit",

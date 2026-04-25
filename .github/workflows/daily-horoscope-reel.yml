@@ -37,11 +37,42 @@ jobs:
         working-directory: remotion_reel
         run: npm install
 
-      - name: Generate, render, post, and clean up
+      - name: Generate content bundle
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+        run: |
+          python viral_horoscope_pipeline.py --generate
+          # Save the bundle path for later steps
+          BUNDLE=$(ls -td generated_reels/*/ | head -1)
+          echo "BUNDLE_DIR=${BUNDLE}" >> $GITHUB_ENV
+          echo "BUNDLE_PATH=${BUNDLE}horoscope_bundle.json" >> $GITHUB_ENV
+
+      - name: Render reel with Remotion
+        run: |
+          python viral_horoscope_pipeline.py --render \
+            --input "${{ env.BUNDLE_PATH }}"
+          echo "REEL_PATH=${{ env.BUNDLE_DIR }}horoscope_reel.mp4" >> $GITHUB_ENV
+
+      - name: Upload reel to Cloudinary (get public URL)
+        env:
+          CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
+          CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
+          CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
+        run: |
+          VIDEO_URL=$(python upload_to_cloudinary.py "${{ env.REEL_PATH }}")
+          echo "VIDEO_URL=${VIDEO_URL}" >> $GITHUB_ENV
+          echo "Uploaded to: ${VIDEO_URL}"
+
+      - name: Post reel to Instagram
+        env:
           META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
           INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
           META_GRAPH_API_VERSION: ${{ secrets.META_GRAPH_API_VERSION }}
         run: |
-          python viral_horoscope_pipeline.py --generate --render --post --cleanup
+          python viral_horoscope_pipeline.py --post \
+            --input "${{ env.BUNDLE_PATH }}" \
+            --video-url "${{ env.VIDEO_URL }}"
+
+      - name: Clean up local outputs
+        if: always()
+        run: rm -rf generated_reels/

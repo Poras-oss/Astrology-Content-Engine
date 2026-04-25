@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-04-26T01:06:26",
+  "generated_at": "2026-04-26T01:29:38",
   "theme_request": "",
   "meta": {
     "title": "Magnetic Truths",
-    "hook": "The unspoken rules you're really living by",
-    "theme": "Exploring the unseen forces that shape your emotions and actions",
-    "caption_hook": "What if your deepest desires are hiding in plain sight?",
-    "caption_body": "This week, we're diving into the unspoken truths that govern your heart and mind. From the secret fears that hold you back to the private strengths that propel you forward, we're exploring it all. Get ready to confront the magnetic forces that shape your relationships, ambitions, and sense of self. It's time to stop playing by the rules and start writing your own story.",
-    "cta": "Save this post and share with a friend who needs to see themselves in a new light",
-    "audio_direction": "Moody, atmospheric soundscapes with a hint of vulnerability",
-    "cover_text": "Your Secret Truth"
+    "hook": "The unspoken rules of your heart",
+    "theme": "Uncovering the private emotions that shape your relationships and self-respect",
+    "caption_hook": "What's the one thing you're not saying out loud?",
+    "caption_body": "This week, we're diving into the unseen forces that drive your decisions and desires. From the way you approach love to the way you prioritize your own needs, it's time to confront the magnetic truths that are either pulling you forward or holding you back. Take a closer look at the unspoken rules that govern your heart and mind, and get ready to unlock a deeper sense of self-respect and emotional intelligence.",
+    "cta": "Save this for the moments when you need to remember your worth",
+    "audio_direction": "Moody, atmospheric soundscapes with a hint of nostalgia",
+    "cover_text": "Your Deepest Truth"
   },
   "signs": [
     {
@@ -21,21 +21,21 @@
         "#7A1C2B",
         "#FF7A59"
       ],
-      "theme": "Fearless Self-Respect",
-      "private_truth": "You're more drawn to people who challenge you than those who coddle you",
-      "tension": "You're torn between embracing your independence and craving validation from others",
-      "shift": "You're on the verge of realizing that your worth isn't defined by external approval",
-      "screenshot_line": "My worth isn't up for debate",
-      "share_line": "When you finally realize your worth isn't defined by others",
+      "theme": "Fearless self-love",
+      "private_truth": "You're secretly seeking validation from the people you love",
+      "tension": "You're torn between your desire for independence and your need for admiration",
+      "shift": "Now's the time to focus on building your own self-worth, rather than seeking it from others",
+      "screenshot_line": "My worth isn't defined by your opinion",
+      "share_line": "When you realize your self-love is the most powerful thing you can offer",
       "reel_lines": [
-        "You're not afraid to take risks",
-        "But are you afraid to be alone?",
-        "The answer will change everything"
+        "What's the one thing you're afraid to say out loud?",
+        "Your confidence is a magnet",
+        "It's time to love yourself first"
       ],
       "keywords": [
-        "confidence",
+        "self-love",
         "independence",
-        "self-worth"
+        "validation"
       ]
     },
     {
@@ -47,21 +47,21 @@
         "#23573A",
         "#E8C16B"
       ],
-      "theme": "Sensual Boundaries",
-      "private_truth": "You use pleasure as a way to avoid emotional pain",
-      "tension": "You're caught between indulging in sensual delights and fearing loss of control",
-      "shift": "You're learning to set boundaries that prioritize your emotional and physical needs",
-      "screenshot_line": "Pleasure is not a substitute for emotional intimacy",
-      "share_line": "When you realize you've been using pleasure to escape your feelings",
+      "theme": "Sensual boundaries",
+      "private_truth": "You've been using intimacy as a way to avoid emotional vulnerability",
+      "tension": "You're caught between your desire for pleasure and your fear of being hurt",
+      "shift": "It's time to prioritize your own emotional safety and set boundaries that nourish your soul",
+      "screenshot_line": "My body, my choice, my boundaries",
+      "share_line": "When you learn to prioritize your own pleasure and comfort",
       "reel_lines": [
-        "You crave comfort and security",
-        "But at what cost to your emotional well-being?",
-        "It's time to redefine what pleasure means to you"
+        "What's the one boundary you need to set today?",
+        "Your body is a temple, not a compromise",
+        "It's time to get intimate with your own desires"
       ],
       "keywords": [
-        "pleasure",
         "boundaries",
-        "self-care"
+        "intimacy",
+        "vulnerability"
       ]
     },
     {
@@ -73,21 +73,21 @@
         "#224E88",
         "#7ED7F7"
       ],
-      "theme": "Curious Ambition",
-      "private_truth": "You're more driven by curiosity than a desire for success",
-      "tension": "You're torn between exploring new interests and focusing on one goal",
-      "shift": "You're on the verge of discovering that your curiosity is the key to unlocking your true potential",
-      "screenshot_line": "I'd rather be curious than certain",
-      "share_line": "When you realize your curiosity is more powerful than your need for control",
+      "theme": "Curious heart",
+      "private_truth": "You've been using your wit and charm to distract yourself from your own emotions",
+      "tension": "You're torn between your love of exploration and your fear of commitment",
+      "shift": "Now's the time to explore your own heart and desires, rather than just the world around you",
+      "screenshot_line": "I'm not afraid to get lost in my own thoughts",
+      "share_line": "When you realize your curiosity is a superpower",
       "reel_lines": [
-        "You're a master of exploration",
-        "But are you afraid to commit?",
-        "The answer will surprise you"
+        "What's the one question you're afraid to ask yourself?",
+        "Your curiosity is a magnet for growth",
+        "It's time to get curious about your own heart"
       ],
       "keywords": [
         "curiosity",
-        "ambition",
-        "exploration"
+        "exploration",
+        "commitment"
       ]
     },
     {
@@ -99,21 +99,21 @@
         "#284B8A",
         "#B9D8FF"
       ],
-      "theme": "Emotional Softness",
-      "private_truth": "You're more resilient than you give yourself credit for",
-      "tension": "You're caught between embracing your emotional depth and fearing vulnerability",
-      "shift": "You're learning to trust that your emotions are a strength, not a weakness",
-      "screenshot_line": "My emotions are not a liability",
-      "share_line": "When you finally realize your emotions are a superpower",
+      "theme": "Nurturing self-love",
+      "private_truth": "You've been prioritizing the needs of others over your own emotional well-being",
+      "tension": "You're caught between your desire to care for others and your need to care for yourself",
+      "shift": "It's time to prioritize your own emotional nourishment and learn to say no without guilt",
+      "screenshot_line": "My love for myself is not selfish, it's essential",
+      "share_line": "When you learn to mother yourself with the same love you give to others",
       "reel_lines": [
-        "You're a guardian of the heart",
-        "But are you guarding yourself from love?",
-        "The answer will change your relationships forever"
+        "What's the one self-care practice you need to prioritize?",
+        "Your emotional well-being is not a luxury, it's a necessity",
+        "It's time to nurture your own heart"
       ],
       "keywords": [
-        "emotions",
-        "vulnerability",
-        "resilience"
+        "self-love",
+        "nourishment",
+        "boundaries"
       ]
     },
     {
@@ -125,21 +125,21 @@
         "#8A430F",
         "#FFC145"
       ],
-      "theme": "Confident Authenticity",
-      "private_truth": "You're more drawn to authenticity than external validation",
-      "tension": "You're torn between being true to yourself and seeking admiration from others",
-      "shift": "You're on the verge of realizing that your authenticity is the key to unlocking your true confidence",
-      "screenshot_line": "I'd rather be authentic than admired",
-      "share_line": "When you realize your authenticity is more powerful than your need for validation",
+      "theme": "Confident vulnerability",
+      "private_truth": "You've been using your confidence as a way to hide your own fears and doubts",
+      "tension": "You're torn between your desire for admiration and your fear of being vulnerable",
+      "shift": "Now's the time to embrace your vulnerability as a sign of strength, not weakness",
+      "screenshot_line": "My vulnerability is my greatest strength",
+      "share_line": "When you realize your confidence is not a mask, but a magnet",
       "reel_lines": [
-        "You're a born performer",
-        "But are you performing for the right audience?",
-        "The answer will set you free"
+        "What's the one thing you're afraid to show the world?",
+        "Your vulnerability is a superpower",
+        "It's time to let your guard down and shine"
       ],
       "keywords": [
-        "authenticity",
+        "vulnerability",
         "confidence",
-        "self-expression"
+        "strength"
       ]
     },
     {
@@ -151,21 +151,21 @@
         "#45634C",
         "#DCE8B4"
       ],
-      "theme": "Practical Self-Love",
-      "private_truth": "You're more capable of self-love than you give yourself credit for",
-      "tension": "You're caught between striving for perfection and embracing your imperfections",
-      "shift": "You're learning to prioritize self-love and self-care in a way that feels practical and achievable",
-      "screenshot_line": "I'm enough, even when I'm not perfect",
-      "share_line": "When you finally realize your worth isn't defined by your productivity",
+      "theme": "Practical magic",
+      "private_truth": "You've been using your analytical mind to avoid your own emotions and desires",
+      "tension": "You're caught between your love of planning and your fear of the unknown",
+      "shift": "It's time to trust your intuition and let go of the need for control",
+      "screenshot_line": "I trust my instincts, even when they don't make sense",
+      "share_line": "When you learn to trust your inner wisdom",
       "reel_lines": [
-        "You're a master of self-improvement",
-        "But are you improving for the right reasons?",
-        "The answer will change your relationship with yourself"
+        "What's the one thing you're trying to control?",
+        "Your intuition is a powerful tool",
+        "It's time to let go and trust the universe"
       ],
       "keywords": [
-        "self-love",
-        "self-care",
-        "perfectionism"
+        "intuition",
+        "trust",
+        "control"
       ]
     },
     {
@@ -177,21 +177,21 @@
         "#6E4A8C",
         "#F5B8E8"
       ],
-      "theme": "Balanced Relationships",
-      "private_truth": "You're more drawn to balance and harmony than intense passion",
-      "tension": "You're torn between seeking equilibrium in your relationships and fearing stagnation",
-      "shift": "You're on the verge of realizing that balance is not a lack of passion, but a sign of healthy relationships",
-      "screenshot_line": "Balance is not boring, it's beautiful",
-      "share_line": "When you realize your need for balance is not a weakness, but a strength",
+      "theme": "Balanced relationships",
+      "private_truth": "You've been prioritizing harmony over your own needs and desires",
+      "tension": "You're torn between your love of balance and your fear of conflict",
+      "shift": "Now's the time to prioritize your own needs and learn to communicate them effectively",
+      "screenshot_line": "My needs are not a compromise, they're a necessity",
+      "share_line": "When you learn to communicate your boundaries with love and respect",
       "reel_lines": [
-        "You're a guardian of harmony",
-        "But are you sacrificing your own needs for the sake of peace?",
-        "The answer will change your approach to relationships"
+        "What's the one boundary you need to communicate?",
+        "Your relationships are a reflection of your own self-worth",
+        "It's time to find balance within yourself"
       ],
       "keywords": [
-        "balance",
-        "harmony",
-        "relationships"
+        "boundaries",
+        "communication",
+        "harmony"
       ]
     },
     {
@@ -203,21 +203,21 @@
         "#4C1D5F",
         "#FF6AA2"
       ],
-      "theme": "Intensity and Intimacy",
-      "private_truth": "You're more drawn to intensity than superficial connections",
-      "tension": "You're caught between craving deep intimacy and fearing the vulnerability that comes with it",
-      "shift": "You're learning to trust that your intensity is a strength, not a liability",
-      "screenshot_line": "I'd rather be intense than indifferent",
-      "share_line": "When you realize your intensity is not a curse, but a gift",
+      "theme": "Passionate authenticity",
+      "private_truth": "You've been using your intensity to hide your own fears and doubts",
+      "tension": "You're caught between your desire for depth and your fear of being vulnerable",
+      "shift": "It's time to let your guard down and be your authentic self, without apology",
+      "screenshot_line": "I'm not afraid to be myself, even if it's not perfect",
+      "share_line": "When you realize your authenticity is your greatest power",
       "reel_lines": [
-        "You're a magnet for depth and intensity",
-        "But are you afraid to get too close?",
-        "The answer will change your approach to intimacy"
+        "What's the one thing you're afraid to reveal?",
+        "Your authenticity is a magnet for true connection",
+        "It's time to let your passion shine"
       ],
       "keywords": [
-        "intensity",
-        "intimacy",
-        "vulnerability"
+        "authenticity",
+        "vulnerability",
+        "passion"
       ]
     },
     {
@@ -229,21 +229,21 @@
         "#6441A5",
         "#FFB86B"
       ],
-      "theme": "Exploratory Freedom",
-      "private_truth": "You're more drawn to freedom than security",
-      "tension": "You're torn between exploring the unknown and fearing the uncertainty that comes with it",
-      "shift": "You're on the verge of realizing that your freedom is not a lack of responsibility, but a sign of courage",
-      "screenshot_line": "I'd rather be free than safe",
-      "share_line": "When you realize your need for freedom is not a weakness, but a strength",
+      "theme": "Expansive heart",
+      "private_truth": "You've been using your love of exploration to avoid your own emotional depth",
+      "tension": "You're torn between your desire for freedom and your fear of commitment",
+      "shift": "Now's the time to explore your own heart and desires, and find freedom in your own emotional depth",
+      "screenshot_line": "My heart is a universe, not a destination",
+      "share_line": "When you realize your freedom is not just about exploration, but about inner expansion",
       "reel_lines": [
-        "You're a seeker of truth and adventure",
-        "But are you afraid to take the leap?",
-        "The answer will change your approach to risk and exploration"
+        "What's the one thing you're afraid to explore?",
+        "Your heart is a vast and wondrous place",
+        "It's time to embark on an inner journey"
       ],
       "keywords": [
-        "freedom",
         "exploration",
-        "courage"
+        "freedom",
+        "emotional depth"
       ]
     },
     {
@@ -255,21 +255,21 @@
         "#434343",
         "#E6D3A3"
       ],
-      "theme": "Ambitious Self-Respect",
-      "private_truth": "You're more driven by self-respect than external validation",
-      "tension": "You're caught between striving for success and fearing the pressure that comes with it",
-      "shift": "You're learning to prioritize self-respect and self-worth in a way that feels authentic and achievable",
-      "screenshot_line": "My worth isn't defined by my achievements",
-      "share_line": "When you finally realize your self-respect is more important than your external success",
+      "theme": "Ambitious heart",
+      "private_truth": "You've been prioritizing your ambitions over your own emotional well-being",
+      "tension": "You're caught between your desire for success and your fear of failure",
+      "shift": "It's time to prioritize your own emotional nourishment and learn to balance your ambitions with self-care",
+      "screenshot_line": "My success is not just about achievement, but about fulfillment",
+      "share_line": "When you learn to prioritize your own emotional well-being",
       "reel_lines": [
-        "You're a builder of empires",
-        "But are you building for the right reasons?",
-        "The answer will change your approach to ambition and success"
+        "What's the one thing you're willing to sacrifice for success?",
+        "Your emotional well-being is not a luxury, it's a necessity",
+        "It's time to redefine what success means to you"
       ],
       "keywords": [
-        "self-respect",
         "ambition",
-        "success"
+        "self-care",
+        "fulfillment"
       ]
     },
     {
@@ -281,21 +281,21 @@
         "#0F6E7A",
         "#95F3FF"
       ],
-      "theme": "Innovative Authenticity",
-      "private_truth": "You're more drawn to innovation than tradition",
-      "tension": "You're torn between embracing your individuality and fearing the rejection that comes with it",
-      "shift": "You're on the verge of realizing that your authenticity is the key to unlocking your true creativity and innovation",
-      "screenshot_line": "I'd rather be innovative than accepted",
-      "share_line": "When you realize your authenticity is more powerful than your need for approval",
+      "theme": "Visionary love",
+      "private_truth": "You've been using your independence to avoid your own emotional vulnerability",
+      "tension": "You're torn between your desire for freedom and your fear of intimacy",
+      "shift": "Now's the time to prioritize your own emotional nourishment and learn to trust others",
+      "screenshot_line": "My love is not a rebellion, it's a revolution",
+      "share_line": "When you realize your love is not just about freedom, but about connection",
       "reel_lines": [
-        "You're a visionary for the future",
-        "But are you afraid to break the mold?",
-        "The answer will change your approach to creativity and self-expression"
+        "What's the one thing you're afraid to surrender to?",
+        "Your love is a powerful force for change",
+        "It's time to trust in the power of connection"
       ],
       "keywords": [
-        "authenticity",
-        "innovation",
-        "individuality"
+        "love",
+        "freedom",
+        "intimacy"
       ]
     },
     {
@@ -307,21 +307,21 @@
         "#3D2C78",
         "#9BC8FF"
       ],
-      "theme": "Emotional Resilience",
-      "private_truth": "You're more resilient than you give yourself credit for",
-      "tension": "You're caught between embracing your emotional depth and fearing the vulnerability that comes with it",
-      "shift": "You're learning to trust that your emotions are a strength, not a liability",
-      "screenshot_line": "My emotions are not a weakness, they're a superpower",
-      "share_line": "When you finally realize your emotional resilience is a gift, not a curse",
+      "theme": "Emotional wisdom",
+      "private_truth": "You've been using your empathy to avoid your own emotions and desires",
+      "tension": "You're caught between your love of connection and your fear of being overwhelmed",
+      "shift": "It's time to prioritize your own emotional nourishment and learn to trust your intuition",
+      "screenshot_line": "I trust my emotions, even when they don't make sense",
+      "share_line": "When you learn to trust your inner wisdom",
       "reel_lines": [
-        "You're a guardian of the heart",
-        "But are you guarding yourself from love?",
-        "The answer will change your approach to relationships and self-love"
+        "What's the one thing you're afraid to feel?",
+        "Your emotions are a powerful guide",
+        "It's time to trust your inner wisdom"
       ],
       "keywords": [
-        "emotional resilience",
-        "vulnerability",
-        "self-love"
+        "emotional wisdom",
+        "intuition",
+        "trust"
       ]
     }
   ]
