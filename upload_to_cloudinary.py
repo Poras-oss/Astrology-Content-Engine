@@ -27,15 +27,30 @@ Setup (one-time):
 from __future__ import annotations
 
 import hashlib
-import hmac
 import os
 import sys
 import time
+from pathlib import Path
+
 import requests
 
 
+def load_dotenv(path: Path) -> dict[str, str]:
+    env: dict[str, str] = {}
+    if not path.exists():
+        return env
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        env[key.strip()] = value.strip().strip('"').strip("'")
+    return env
+
+
 def get_env(key: str) -> str:
-    val = os.environ.get(key, "").strip()
+    local_env = load_dotenv(Path(".env"))
+    val = (os.environ.get(key, "") or local_env.get(key, "")).strip()
     if not val:
         raise RuntimeError(f"Missing environment variable: {key}")
     return val

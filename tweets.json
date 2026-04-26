@@ -13,6 +13,20 @@
   },
   "tweets": [
     {
+      "id": "1777148983015",
+      "content": "Realized my Astrology Content Engine was missing a crucial file. Fixed that by adding tweets.json and updated upload_to_cloudinary.py. Now, zodiac insights are just a cloud upload away AstrologyContentEngine #Cloudinary",
+      "source": "commit",
+      "sourceDetail": "added missing file",
+      "createdAt": "2026-04-25T20:29:43.015Z",
+      "publish": false,
+      "scheduledAt": null,
+      "tags": [
+        "buildinpublic",
+        "coding"
+      ],
+      "characterCount": 219
+    },
+    {
       "id": "1777148148226",
       "content": "Refactored my Astrology Content Engine's pipeline with a fresh script from Claude. Replaced 87 lines of code with 82 new ones, making my viral horoscope generator more efficient and accurate. Less code, more cosmic insights",
       "source": "commit",
