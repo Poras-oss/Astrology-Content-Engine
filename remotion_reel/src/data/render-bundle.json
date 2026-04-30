@@ -1,95 +1,29 @@
 {
-  "generated_at": "2026-04-26T16:29:52",
+  "generated_at": "2026-05-01T00:09:59",
   "theme_request": "",
+  "reel_style": "moon_sign_mood",
+  "targeting": {
+    "label": "Moon signs: private mood",
+    "headline": "Moon signs that are feeling everything privately",
+    "target_signs": [
+      "Cancer",
+      "Scorpio",
+      "Pisces",
+      "Taurus"
+    ]
+  },
   "meta": {
-    "title": "Magnetic Truths",
-    "hook": "The secrets you hide from yourself",
-    "theme": "Uncovering the private emotions that drive us",
-    "caption_hook": "What's the one thing you're not saying out loud?",
-    "caption_body": "We all have private emotions, the ones we don't dare to speak. But what if acknowledging them is the key to unlocking your magnetic self-respect? This week, we're diving into the unspoken truths that drive us. From the fear of vulnerability to the thrill of taking control, we're exploring the inner narratives that shape our relationships, ambitions, and sense of self-worth. So, take a deep breath and let's confront the secrets you hide from yourself. Get ready to feel seen, heard, and empowered to take ownership of your emotions.",
-    "cta": "Save this post and share with a friend who needs to see it",
-    "audio_direction": "Moody, atmospheric soundscapes with a hint of intimacy",
-    "cover_text": "Your Secret Truth"
+    "title": "Moon Signs Uncovered",
+    "hook": "These Moon signs are feeling everything privately.",
+    "theme": "The hidden emotional lives of certain Moon signs are being stirred up by the current astrological weather.",
+    "description": "The Moon in Pisces is forming a tense aspect with Saturn, causing an increase in emotional introspection and self-doubt.",
+    "caption_hook": "You're not alone in hiding your true feelings, but these Moon signs are struggling to keep it together.",
+    "caption_body": "The veil between their public and private selves is thinning, and the pressure is mounting. As the Moon in Pisces clashes with Saturn, the urge to retreat and self-protect grows stronger. Who can relate? ",
+    "cta": "Send this to someone who knows their Moon sign too well.",
+    "audio_direction": "Mysterious, atmospheric soundscapes with a hint of melancholy.",
+    "cover_text": "YOUR MOON SIGN KNOWS"
   },
   "signs": [
-    {
-      "sign": "Aries",
-      "element": "Fire",
-      "symbol": "Ram",
-      "palette": [
-        "#2A0F14",
-        "#7A1C2B",
-        "#FF7A59"
-      ],
-      "theme": "Fearless Self-Respect",
-      "private_truth": "You're more afraid of being vulnerable than you are of taking risks",
-      "tension": "Your need for control is at war with your desire for deep connections",
-      "shift": "Now is the time to practice self-compassion and prioritize your emotional safety",
-      "screenshot_line": "My worth isn't defined by my achievements, but by my willingness to be seen",
-      "share_line": "You're not weak for feeling, you're brave for facing it",
-      "reel_lines": [
-        "What's the one thing you're not saying out loud?",
-        "Your silence is deafening, but your truth is liberating",
-        "Take ownership of your emotions, and watch your life transform"
-      ],
-      "keywords": [
-        "vulnerability",
-        "self-respect",
-        "emotional safety"
-      ]
-    },
-    {
-      "sign": "Taurus",
-      "element": "Earth",
-      "symbol": "Bull",
-      "palette": [
-        "#0E221B",
-        "#23573A",
-        "#E8C16B"
-      ],
-      "theme": "Sensual Boundaries",
-      "private_truth": "You use physical touch as a way to avoid emotional intimacy",
-      "tension": "Your desire for comfort and security is at odds with your need for emotional connection",
-      "shift": "It's time to redefine what intimacy means to you and prioritize your emotional needs",
-      "screenshot_line": "I deserve to feel seen and touched, not just physically, but emotionally",
-      "share_line": "You can't pour from an empty cup, take care of your emotional needs first",
-      "reel_lines": [
-        "What's the difference between physical and emotional intimacy?",
-        "Your body is a temple, but your emotions are the sacred flame",
-        "It's time to nourish your soul, not just your senses"
-      ],
-      "keywords": [
-        "intimacy",
-        "boundaries",
-        "emotional connection"
-      ]
-    },
-    {
-      "sign": "Gemini",
-      "element": "Air",
-      "symbol": "Twins",
-      "palette": [
-        "#111827",
-        "#224E88",
-        "#7ED7F7"
-      ],
-      "theme": "Curious Ambition",
-      "private_truth": "You're afraid of being tied down, but you're also terrified of being alone",
-      "tension": "Your need for freedom and exploration is at war with your desire for connection and community",
-      "shift": "Now is the time to find a sense of belonging that doesn't suffocate your curiosity",
-      "screenshot_line": "I don't have to choose between my independence and my desire for connection",
-      "share_line": "You can be free and still have someone to come home to",
-      "reel_lines": [
-        "What's the balance between freedom and connection?",
-        "Your curiosity is a superpower, don't let it be silenced",
-        "Find your tribe, but don't lose yourself in the process"
-      ],
-      "keywords": [
-        "freedom",
-        "connection",
-        "curiosity"
-      ]
-    },
     {
       "sign": "Cancer",
       "element": "Water",
@@ -99,99 +33,21 @@
         "#284B8A",
         "#B9D8FF"
       ],
-      "theme": "Nurturing Heart",
-      "private_truth": "You're more sensitive than you let on, and it's okay to show it",
-      "tension": "Your need for emotional security is at odds with your fear of being vulnerable",
-      "shift": "It's time to prioritize your own emotional well-being and let go of the need to care for others first",
-      "screenshot_line": "My emotions are valid, and I deserve to be nurtured too",
-      "share_line": "You can't give from an empty heart, take care of your own emotional needs first",
+      "theme": "Emotional Safety Nets",
+      "private_truth": "You're secretly seeking constant reassurance from your partner.",
+      "tension": "The fear of abandonment is at war with your need for independence.",
+      "shift": "Your emotional boundaries are about to get a major overhaul.",
+      "screenshot_line": "My love language is 'don't leave me'",
+      "share_line": "Same, I'm so done with pretending I'm okay",
       "reel_lines": [
-        "What's the difference between being nurturing and being selfless?",
-        "Your heart is a garden, and it needs to be tended to",
-        "Prioritize your own emotional well-being, and watch your relationships transform"
+        "Hiding behind a mask",
+        "Moon in Pisces triggers clingy nights",
+        "Set boundaries or suffocate"
       ],
       "keywords": [
-        "emotional security",
-        "vulnerability",
-        "self-care"
-      ]
-    },
-    {
-      "sign": "Leo",
-      "element": "Fire",
-      "symbol": "Lion",
-      "palette": [
-        "#2A1405",
-        "#8A430F",
-        "#FFC145"
-      ],
-      "theme": "Confident Authenticity",
-      "private_truth": "You're more afraid of being ignored than you are of being rejected",
-      "tension": "Your need for validation is at war with your desire for authenticity",
-      "shift": "Now is the time to focus on your own self-worth and let go of the need for external validation",
-      "screenshot_line": "My worth isn't defined by your attention, but by my own self-love",
-      "share_line": "You're not invisible, you're just not letting your true self shine",
-      "reel_lines": [
-        "What's the difference between seeking validation and seeking connection?",
-        "Your worth is not defined by likes and comments",
-        "Be unapologetically yourself, and watch your confidence soar"
-      ],
-      "keywords": [
-        "validation",
-        "authenticity",
-        "self-worth"
-      ]
-    },
-    {
-      "sign": "Virgo",
-      "element": "Earth",
-      "symbol": "Maiden",
-      "palette": [
-        "#152018",
-        "#45634C",
-        "#DCE8B4"
-      ],
-      "theme": "Practical Softness",
-      "private_truth": "You're more emotional than you think, and it's okay to show it",
-      "tension": "Your need for control and perfection is at odds with your desire for emotional connection",
-      "shift": "It's time to prioritize your own emotional well-being and let go of the need to fix everything",
-      "screenshot_line": "I don't have to have it all together, and that's okay",
-      "share_line": "You're not weak for feeling, you're human for being vulnerable",
-      "reel_lines": [
-        "What's the difference between being practical and being emotionally numb?",
-        "Your emotions are not a liability, they're a strength",
-        "Let go of the need to control, and watch your relationships transform"
-      ],
-      "keywords": [
-        "emotional connection",
-        "control",
-        "vulnerability"
-      ]
-    },
-    {
-      "sign": "Libra",
-      "element": "Air",
-      "symbol": "Scales",
-      "palette": [
-        "#1D1424",
-        "#6E4A8C",
-        "#F5B8E8"
-      ],
-      "theme": "Balanced Harmony",
-      "private_truth": "You're more concerned with being liked than you are with being true to yourself",
-      "tension": "Your need for social validation is at war with your desire for authenticity",
-      "shift": "Now is the time to prioritize your own needs and desires, and let go of the need for external approval",
-      "screenshot_line": "I deserve to be liked for who I am, not for who I pretend to be",
-      "share_line": "You're not a people-pleaser, you're a soul on a journey",
-      "reel_lines": [
-        "What's the difference between being liked and being loved?",
-        "Your worth is not defined by your relationships",
-        "Be unapologetically yourself, and watch your life transform"
-      ],
-      "keywords": [
-        "social validation",
-        "authenticity",
-        "self-worth"
+        "emotional labor",
+        "attachment issues",
+        "intimacy fears"
       ]
     },
     {
@@ -203,99 +59,21 @@
         "#4C1D5F",
         "#FF6AA2"
       ],
-      "theme": "Passionate Intensity",
-      "private_truth": "You're more afraid of being hurt than you are of being in control",
-      "tension": "Your need for intensity and passion is at odds with your fear of vulnerability",
-      "shift": "It's time to prioritize your own emotional well-being and let go of the need to control everything",
-      "screenshot_line": "I don't have to control everything, I just have to be present",
-      "share_line": "You're not intense, you're just deeply feeling",
+      "theme": "Shadow Work",
+      "private_truth": "You're intensely drawn to the darkness within yourself and others.",
+      "tension": "The allure of the unknown is at odds with your desire for control.",
+      "shift": "Your deepest fears are about to surface, and you'll be forced to confront them.",
+      "screenshot_line": "My darkness is my superpower",
+      "share_line": "I'm so here for the shadow work, who's with me?",
       "reel_lines": [
-        "What's the difference between being in control and being present?",
-        "Your emotions are not a liability, they're a strength",
-        "Let go of the need to control, and watch your relationships transform"
+        "Obsessed with the truth",
+        "Saturn's influence brings toxic attractions",
+        "Face your demons, or they'll haunt you"
       ],
       "keywords": [
-        "intensity",
-        "vulnerability",
-        "emotional well-being"
-      ]
-    },
-    {
-      "sign": "Sagittarius",
-      "element": "Fire",
-      "symbol": "Archer",
-      "palette": [
-        "#1C1222",
-        "#6441A5",
-        "#FFB86B"
-      ],
-      "theme": "Expansive Curiosity",
-      "private_truth": "You're more afraid of being trapped than you are of being free",
-      "tension": "Your need for exploration and freedom is at war with your desire for connection and community",
-      "shift": "Now is the time to find a sense of belonging that doesn't suffocate your curiosity",
-      "screenshot_line": "I don't have to choose between my freedom and my desire for connection",
-      "share_line": "You can be free and still have a sense of home",
-      "reel_lines": [
-        "What's the balance between freedom and connection?",
-        "Your curiosity is a superpower, don't let it be silenced",
-        "Find your tribe, but don't lose yourself in the process"
-      ],
-      "keywords": [
-        "freedom",
-        "connection",
-        "curiosity"
-      ]
-    },
-    {
-      "sign": "Capricorn",
-      "element": "Earth",
-      "symbol": "Sea Goat",
-      "palette": [
-        "#141414",
-        "#434343",
-        "#E6D3A3"
-      ],
-      "theme": "Ambitious Vulnerability",
-      "private_truth": "You're more afraid of being vulnerable than you are of being successful",
-      "tension": "Your need for control and perfection is at odds with your desire for emotional connection",
-      "shift": "It's time to prioritize your own emotional well-being and let go of the need to have it all together",
-      "screenshot_line": "I don't have to have it all together, and that's okay",
-      "share_line": "You're not weak for feeling, you're human for being vulnerable",
-      "reel_lines": [
-        "What's the difference between being practical and being emotionally numb?",
-        "Your emotions are not a liability, they're a strength",
-        "Let go of the need to control, and watch your relationships transform"
-      ],
-      "keywords": [
-        "vulnerability",
-        "emotional connection",
-        "control"
-      ]
-    },
-    {
-      "sign": "Aquarius",
-      "element": "Air",
-      "symbol": "Water Bearer",
-      "palette": [
-        "#0A1A22",
-        "#0F6E7A",
-        "#95F3FF"
-      ],
-      "theme": "Innovative Authenticity",
-      "private_truth": "You're more concerned with being unique than you are with being true to yourself",
-      "tension": "Your need for individuality is at war with your desire for connection and community",
-      "shift": "Now is the time to prioritize your own needs and desires, and let go of the need for external validation",
-      "screenshot_line": "I deserve to be seen for who I am, not for who I pretend to be",
-      "share_line": "You're not a rebel, you're a pioneer",
-      "reel_lines": [
-        "What's the difference between being unique and being authentic?",
-        "Your worth is not defined by your differences",
-        "Be unapologetically yourself, and watch your life transform"
-      ],
-      "keywords": [
-        "individuality",
-        "authenticity",
-        "self-worth"
+        "shadow self",
+        "trauma bonding",
+        "mystery obsession"
       ]
     },
     {
@@ -307,22 +85,49 @@
         "#3D2C78",
         "#9BC8FF"
       ],
-      "theme": "Empathetic Boundaries",
-      "private_truth": "You're more emotional than you think, and it's okay to show it",
-      "tension": "Your need for emotional connection is at odds with your fear of being overwhelmed",
-      "shift": "It's time to prioritize your own emotional well-being and set healthy boundaries",
-      "screenshot_line": "I don't have to absorb everyone's emotions, I just have to be present",
-      "share_line": "You're not a sponge, you're a ocean",
+      "theme": "Dreamcatcher",
+      "private_truth": "You're desperate to escape the harsh realities of the world.",
+      "tension": "The need for fantasy is at war with the need for practicality.",
+      "shift": "Your creative expression is about to become a powerful coping mechanism.",
+      "screenshot_line": "I'd rather live in a dream world",
+      "share_line": "Same, reality is so overrated",
       "reel_lines": [
-        "What's the difference between being empathetic and being overwhelmed?",
-        "Your emotions are not a liability, they're a strength",
-        "Set boundaries, and watch your relationships transform"
+        "Fleeing to fantasy lands",
+        "Neptune's transit fuels artistic escapes",
+        "Create, or lose yourself"
       ],
       "keywords": [
-        "emotional connection",
-        "boundaries",
-        "emotional well-being"
+        "escapism",
+        "creative expression",
+        "reality avoidance"
+      ]
+    },
+    {
+      "sign": "Taurus",
+      "element": "Earth",
+      "symbol": "Bull",
+      "palette": [
+        "#0E221B",
+        "#23573A",
+        "#E8C16B"
+      ],
+      "theme": "Sensory Overload",
+      "private_truth": "You're secretly overwhelmed by the constant demands of others.",
+      "tension": "The need for comfort is at odds with the need for control.",
+      "shift": "Your self-care rituals are about to become a non-negotiable priority.",
+      "screenshot_line": "I'm so done with people pleasing",
+      "share_line": "Same, I'm taking back my time and energy",
+      "reel_lines": [
+        "Drowning in other people's needs",
+        "Venus's retrograde sparks comfort cravings",
+        "Prioritize self-love, or burn out"
+      ],
+      "keywords": [
+        "people pleasing",
+        "self-care",
+        "boundaries"
       ]
     }
-  ]
+  ],
+  "_internal_audio_path": "bg_music.mp3"
 }

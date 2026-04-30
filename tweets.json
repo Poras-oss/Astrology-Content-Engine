@@ -13,6 +13,20 @@
   },
   "tweets": [
     {
+      "id": "1777203326115",
+      "content": "Added a secret revealer to my Astrology Content Engine. Now, sensitive info in my GitHub workflows is protected. Updated Remotion render bundle, tweets, and Cloudinary uploader to keep things secure.",
+      "source": "commit",
+      "sourceDetail": "added a secret revealer",
+      "createdAt": "2026-04-26T11:35:26.115Z",
+      "publish": false,
+      "scheduledAt": null,
+      "tags": [
+        "buildinpublic",
+        "coding"
+      ],
+      "characterCount": 199
+    },
+    {
       "id": "1777148983015",
       "content": "Realized my Astrology Content Engine was missing a crucial file. Fixed that by adding tweets.json and updated upload_to_cloudinary.py. Now, zodiac insights are just a cloud upload away AstrologyContentEngine #Cloudinary",
       "source": "commit",

@@ -2,17 +2,100 @@ name: Post Daily Horoscope Reel
 
 on:
   schedule:
-    # 9:55 AM Asia/Kolkata = 04:25 UTC (India does not observe DST)
-    - cron: "25 4 * * *"
+    # 3 times daily: 12:00 AM, 8:00 AM, 4:00 PM UTC
+    - cron: "0 0,8,16 * * *"
   workflow_dispatch:
+    inputs:
+      style:
+        description: "Reel style to generate"
+        required: false
+        default: "daily"
+        type: choice
+        options:
+          - daily
+          - random_daily
+          - random_viral
+          - all_signs
+          - daily_transit
+          - love_attachment
+          - shadow_callout
+          - compatibility_drama
+          - money_power
+          - weekend_tension
+          - moon_sign_mood
+          - placement_based
+          - fixed_self_respect
+          - fire_do_not_chase
+          - moved_on_but_didnt
+          - moon_scorpio_exposure
+          - generator
+      gen_format:
+        description: "Generator format (if style=generator)"
+        required: false
+        default: "4-sign"
+        type: choice
+        options:
+          - 4-sign
+          - all12
+          - 3sign-rival
+          - 1sign
+      gen_theme:
+        description: "Generator theme (if style=generator)"
+        required: false
+        default: "attachment"
+        type: choice
+        options:
+          - attachment
+          - ego
+          - boundaries
+          - romance
+          - career
+          - shadow
+      gen_tone:
+        description: "Generator tone (if style=generator)"
+        required: false
+        default: "perceptive-friend"
+        type: choice
+        options:
+          - perceptive-friend
+          - dry-wit
+          - blunt
+          - warm
+      gen_transit:
+        description: "Generator transit (if style=generator)"
+        required: false
+        default: "mercury-rx"
+        type: choice
+        options:
+          - mercury-rx
+          - venus-pisces
+          - mars-gemini
+          - saturn-sq
+          - full-moon
+          - north-node
+      theme:
+        description: "Optional theme override"
+        required: false
+        type: string
 
 permissions:
-  contents: read
+  contents: write
+
+concurrency:
+  group: daily-horoscope-reel
+  cancel-in-progress: false
 
 jobs:
   generate-render-post:
     runs-on: ubuntu-latest
     timeout-minutes: 45
+    env:
+      REEL_STYLE: ${{ inputs.style || 'daily' }}
+      REEL_THEME: ${{ inputs.theme || '' }}
+      GEN_FORMAT: ${{ inputs.gen_format || '4-sign' }}
+      GEN_THEME: ${{ inputs.gen_theme || 'attachment' }}
+      GEN_TONE: ${{ inputs.gen_tone || 'perceptive-friend' }}
+      GEN_TRANSIT: ${{ inputs.gen_transit || 'mercury-rx' }}
 
     steps:
       - name: Checkout repository
@@ -37,41 +120,27 @@ jobs:
         working-directory: remotion_reel
         run: npm install
 
-      - name: Generate content bundle
+      - name: Run Scheduled Post Manager
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-        run: |
-          python viral_horoscope_pipeline.py --generate
-          # Save the bundle path for later steps
-          BUNDLE=$(ls -td generated_reels/*/ | head -1)
-          echo "BUNDLE_DIR=${BUNDLE}" >> $GITHUB_ENV
-          echo "BUNDLE_PATH=${BUNDLE}horoscope_bundle.json" >> $GITHUB_ENV
-
-      - name: Render reel with Remotion
-        run: |
-          python viral_horoscope_pipeline.py --render \
-            --input "${{ env.BUNDLE_PATH }}"
-          echo "REEL_PATH=${{ env.BUNDLE_DIR }}horoscope_reel.mp4" >> $GITHUB_ENV
-
-      - name: Upload reel to Cloudinary (get public URL)
-        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
+          META_GRAPH_API_VERSION: ${{ secrets.META_GRAPH_API_VERSION }}
           CLOUDINARY_CLOUD_NAME: ${{ secrets.CLOUDINARY_CLOUD_NAME }}
           CLOUDINARY_API_KEY: ${{ secrets.CLOUDINARY_API_KEY }}
           CLOUDINARY_API_SECRET: ${{ secrets.CLOUDINARY_API_SECRET }}
         run: |
-          VIDEO_URL=$(python upload_to_cloudinary.py "${{ env.REEL_PATH }}")
-          echo "VIDEO_URL=${VIDEO_URL}" >> $GITHUB_ENV
-          echo "Uploaded to: ${VIDEO_URL}"
+          python scheduled_post_manager.py
 
-      - name: Post reel to Instagram
-        env:
-          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
-          INSTAGRAM_USER_ID: ${{ secrets.INSTAGRAM_USER_ID }}
-          META_GRAPH_API_VERSION: ${{ secrets.META_GRAPH_API_VERSION }}
+      - name: Persist pipeline state
         run: |
-          python viral_horoscope_pipeline.py --post \
-            --input "${{ env.BUNDLE_PATH }}" \
-            --video-url "${{ env.VIDEO_URL }}"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if [ -f pipeline_state.json ]; then
+            git add pipeline_state.json
+            git commit -m "chore: update pipeline state [skip ci]" || echo "No changes to commit"
+            git push
+          fi
 
       - name: Clean up local outputs
         if: always()

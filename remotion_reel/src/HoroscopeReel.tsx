@@ -1,270 +1,247 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Audio,
   Easing,
   Sequence,
   interpolate,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig
 } from "remotion";
-import {HoroscopeBundle, SignCard} from "./types";
+import {HoroscopeBundle, HoroscopeSign, SignGroup} from "./types";
 
 const introFrames = 90;
-const signFrames = 120;
 const outroFrames = 90;
 
-const textStyle: React.CSSProperties = {
-  fontFamily: "Georgia, 'Times New Roman', serif",
-  color: "white",
-  letterSpacing: "-0.02em"
+type ReelItem = {
+  label: string;
+  sublabel: string;
+  badge: string;
+  lines: string[];
+  accent: string;
+  palette: string[];
 };
 
-const Badge: React.FC<{label: string}> = ({label}) => (
-  <div
-    style={{
-      border: "1px solid rgba(255,255,255,0.18)",
-      borderRadius: 999,
-      padding: "12px 20px",
-      fontSize: 28,
-      color: "rgba(255,255,255,0.72)",
-      backdropFilter: "blur(12px)",
-      background: "rgba(255,255,255,0.06)"
-    }}
-  >
-    {label}
-  </div>
-);
+const textStyle: React.CSSProperties = {
+  fontFamily: "'Inter', 'Roboto', sans-serif",
+  color: "white",
+  letterSpacing: 0
+};
 
-const Background: React.FC<{palette: string[]; accentOpacity?: number}> = ({palette, accentOpacity = 0.3}) => {
+const clampText = (text: string | undefined, fallback: string) => {
+  const value = String(text || "").trim();
+  return value || fallback;
+};
+
+const sizeFor = (text: string, large: number, medium: number, small: number) => {
+  if (text.length > 92) {
+    return small;
+  }
+  if (text.length > 62) {
+    return medium;
+  }
+  return large;
+};
+
+const asItems = (bundle: HoroscopeBundle): ReelItem[] => {
+  if (Array.isArray(bundle.signs) && bundle.signs.length > 0) {
+    return bundle.signs.map((sign: HoroscopeSign) => ({
+      label: sign.sign,
+      sublabel: sign.element || sign.symbol || "Zodiac",
+      badge: sign.theme || sign.symbol || sign.sign,
+      lines: [
+        ...(Array.isArray(sign.reel_lines) ? sign.reel_lines : []),
+        sign.screenshot_line,
+        sign.shift
+      ].filter(Boolean).slice(0, 3),
+      accent: sign.palette?.[2] || "#FFB86B",
+      palette: sign.palette?.length ? sign.palette : ["#0B0B0D", "#22252E", "#FFB86B"]
+    }));
+  }
+
+  return (bundle.groups || []).map((group: SignGroup) => {
+    const splitLines = group.message.split(/[.!?]/).map(l => l.trim()).filter(Boolean);
+    return {
+      label: group.group_name,
+      sublabel: group.signs_included.join(" / "),
+      badge: group.visual_cue,
+      lines: [
+        splitLines[0] || group.message,
+        splitLines[1] || group.visual_cue,
+        splitLines[2] || "Read it twice."
+      ].slice(0, 3),
+      accent: "#FF6AA2",
+      palette: ["#0B0B0D", "#281A33", "#FF6AA2"]
+    };
+  });
+};
+
+const bundleHook = (bundle: HoroscopeBundle) =>
+  clampText(bundle.meta?.hook || bundle.hook, "This sign message is not subtle.");
+
+const bundleCover = (bundle: HoroscopeBundle) =>
+  clampText(bundle.meta?.cover_text || bundle.targeting?.headline || bundleHook(bundle), "YOUR SIGN GOT CALLED OUT");
+
+const bundleCta = (bundle: HoroscopeBundle) =>
+  clampText(bundle.meta?.cta || bundle.CTA, "Save this and send it to the sign that got read.");
+
+const bundleLabel = (bundle: HoroscopeBundle) =>
+  clampText(bundle.targeting?.label || bundle.meta?.title, "Astrology check");
+
+const bundleDescription = (bundle: HoroscopeBundle) =>
+  clampText(bundle.meta?.description || (bundle as any).description, "");
+
+const Background: React.FC<{items: ReelItem[]}> = ({items}) => {
+  const frame = useCurrentFrame();
+  const palette = items[0]?.palette || ["#08080A", "#1A1A22", "#FFB86B"];
+  const drift = interpolate(frame % 180, [0, 90, 180], [0, 1, 0]);
+
   return (
     <AbsoluteFill
       style={{
-        background: `radial-gradient(circle at 20% 15%, ${withAlpha(palette[2], accentOpacity)} 0%, transparent 30%),
-          radial-gradient(circle at 85% 25%, rgba(255,255,255,0.12) 0%, transparent 24%),
-          radial-gradient(circle at 50% 80%, ${withAlpha(palette[1], 0.45)} 0%, transparent 35%),
-          linear-gradient(155deg, ${palette[0]} 0%, ${palette[1]} 60%, #050505 100%)`
+        background: `linear-gradient(${180 + drift * 18}deg, ${palette[0]} 0%, #050505 44%, ${palette[1]} 100%)`
       }}
-    />
-  );
-};
-
-const withAlpha = (hex: string, alpha: number): string => {
-  const normalized = hex.replace("#", "");
-  if (normalized.length !== 6) {
-    return hex;
-  }
-  const r = Number.parseInt(normalized.slice(0, 2), 16);
-  const g = Number.parseInt(normalized.slice(2, 4), 16);
-  const b = Number.parseInt(normalized.slice(4, 6), 16);
-  return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-};
-
-const TitleScene: React.FC<{bundle: HoroscopeBundle}> = ({bundle}) => {
-  const frame = useCurrentFrame();
-  const {fps} = useVideoConfig();
-  const scale = spring({fps, frame, config: {damping: 16, stiffness: 110}});
-  const opacity = interpolate(frame, [0, 18, 58, 75], [0, 1, 1, 0], {
-    easing: Easing.out(Easing.cubic),
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp"
-  });
-
-  return (
-    <AbsoluteFill style={{padding: 72, justifyContent: "space-between", opacity}}>
-      <Background palette={["#060816", "#24143C", "#FF8A5B"]} accentOpacity={0.38} />
-      <div
+    >
+      <AbsoluteFill
         style={{
-          position: "absolute",
-          inset: 0,
-          background:
-            "linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.22) 30%, rgba(0,0,0,0.62) 100%)"
+          opacity: 0.34,
+          backgroundImage:
+            "linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)",
+          backgroundSize: "72px 72px",
+          transform: `translateY(${-drift * 24}px)`
         }}
       />
-      <div style={{position: "relative", zIndex: 1}}>
-        <div
-          style={{
-            ...textStyle,
-            fontSize: 30,
-            textTransform: "uppercase",
-            color: "rgba(255,255,255,0.68)",
-            marginBottom: 28,
-            letterSpacing: "0.22em"
-          }}
-        >
-          Viral All-Signs Reel
-        </div>
-        <div
-          style={{
-            ...textStyle,
-            fontSize: 110,
-            fontWeight: 700,
-            lineHeight: 0.95,
-            maxWidth: 850,
-            transform: `scale(${0.92 + scale * 0.08})`,
-            transformOrigin: "left top"
-          }}
-        >
-          {bundle.meta.cover_text}
-        </div>
-      </div>
-
-      <div style={{position: "relative", zIndex: 1, maxWidth: 880}}>
-        <div
-          style={{
-            ...textStyle,
-            fontSize: 54,
-            lineHeight: 1.08,
-            marginBottom: 34,
-            color: "#FFF2E8"
-          }}
-        >
-          {bundle.meta.hook}
-        </div>
-        <div style={{display: "flex", gap: 16, flexWrap: "wrap"}}>
-          <Badge label={bundle.meta.theme} />
-          <Badge label={bundle.meta.audio_direction} />
-        </div>
-      </div>
     </AbsoluteFill>
   );
 };
 
-const SignScene: React.FC<{card: SignCard}> = ({card}) => {
+const TitleScene: React.FC<{bundle: HoroscopeBundle; items: ReelItem[]}> = ({bundle, items}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const enter = spring({fps, frame, config: {damping: 18, stiffness: 130}});
-  const accentRise = interpolate(frame, [0, signFrames], [120, -40], {
+  const scale = spring({fps, frame, config: {damping: 15, stiffness: 120}});
+  const opacity = interpolate(frame, [0, 12, introFrames - 12, introFrames], [0, 1, 1, 0], {
+    easing: Easing.out(Easing.cubic),
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp"
   });
+  const cover = bundleCover(bundle);
+  const hook = bundleHook(bundle);
 
   return (
-    <AbsoluteFill style={{padding: 60}}>
-      <Background palette={card.palette as string[]} />
+    <AbsoluteFill style={{padding: 76, justifyContent: "center", opacity}}>
+      <div style={{...textStyle, fontSize: 28, fontWeight: 800, color: items[0]?.accent || "#FFB86B", textTransform: "uppercase"}}>
+        {bundleLabel(bundle)}
+      </div>
       <div
         style={{
-          position: "absolute",
-          inset: 24,
-          borderRadius: 40,
-          border: "1px solid rgba(255,255,255,0.08)",
-          background: "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))"
+          ...textStyle,
+          marginTop: 24,
+          fontSize: sizeFor(cover, 86, 74, 62),
+          fontWeight: 900,
+          lineHeight: 0.98,
+          textTransform: "uppercase",
+          transform: `scale(${0.94 + scale * 0.06})`,
+          textShadow: "0px 14px 34px rgba(0,0,0,0.75)"
         }}
-      />
-      <div
-        style={{
-          position: "absolute",
-          right: 40,
-          top: accentRise,
-          width: 360,
-          height: 360,
-          borderRadius: "50%",
-          background: `radial-gradient(circle, ${withAlpha(card.palette[2], 0.72)} 0%, transparent 70%)`,
-          filter: "blur(10px)"
-        }}
-      />
-
-      <div style={{position: "relative", zIndex: 1, display: "flex", flexDirection: "column", height: "100%"}}>
-        <div style={{display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 50}}>
-          <div>
-            <div
-              style={{
-                ...textStyle,
-                fontSize: 28,
-                textTransform: "uppercase",
-                color: "rgba(255,255,255,0.62)",
-                letterSpacing: "0.2em",
-                marginBottom: 16
-              }}
-            >
-              {card.element} Sign
-            </div>
-            <div
-              style={{
-                ...textStyle,
-                fontSize: 96,
-                fontWeight: 700,
-                lineHeight: 0.92,
-                transform: `translateY(${(1 - enter) * 20}px)`,
-                opacity: enter
-              }}
-            >
-              {card.sign}
-            </div>
-          </div>
-          <Badge label={card.theme} />
+      >
+        {cover}
+      </div>
+      <div style={{...textStyle, marginTop: 34, fontSize: 38, lineHeight: 1.18, color: "rgba(255,255,255,0.82)", maxWidth: 880}}>
+        {hook}
+      </div>
+      {bundleDescription(bundle) && (
+        <div style={{...textStyle, marginTop: 24, fontSize: 24, color: "rgba(255,255,255,0.5)", textTransform: "uppercase", letterSpacing: 2}}>
+          {bundleDescription(bundle)}
         </div>
+      )}
+    </AbsoluteFill>
+  );
+};
 
+const SignScene: React.FC<{item: ReelItem; index: number; total: number; duration: number}> = ({item, index, total, duration}) => {
+  const frame = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const enter = spring({fps, frame, config: {damping: 18, stiffness: 130}});
+  const opacity = interpolate(frame, [0, 10, duration - 12, duration], [0, 1, 1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp"
+  });
+  const lineOne = clampText(item.lines[0], "This one is for you.");
+  const lineTwo = clampText(item.lines[1], "You already know why.");
+  const lineThree = clampText(item.lines[2], "Do not ignore the pattern.");
+
+  return (
+    <AbsoluteFill style={{padding: 64, opacity}}>
+      <div style={{display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+        <div style={{...textStyle, fontSize: 32, fontWeight: 900, color: item.accent, textTransform: "uppercase"}}>
+          {item.label}
+        </div>
+        <div style={{...textStyle, fontSize: 26, fontWeight: 700, color: "rgba(255,255,255,0.62)"}}>
+          {String(index + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
+        </div>
+      </div>
+
+      <div style={{...textStyle, marginTop: 14, fontSize: 28, color: "rgba(255,255,255,0.56)", textTransform: "uppercase"}}>
+        {item.sublabel}
+      </div>
+
+      <div
+        style={{
+          marginTop: 96,
+          transform: `translateY(${(1 - enter) * 42}px)`,
+          borderLeft: `8px solid ${item.accent}`,
+          paddingLeft: 30
+        }}
+      >
+        <div style={{...textStyle, fontSize: 18, fontWeight: 800, color: "rgba(255,255,255,0.4)", marginBottom: 8, letterSpacing: 1}}>
+          THE VIBE
+        </div>
         <div
           style={{
             ...textStyle,
-            fontSize: 50,
-            lineHeight: 1.08,
-            maxWidth: 920,
-            marginBottom: 36,
-            color: "#FFF7EF"
+            fontSize: sizeFor(lineOne, 74, 64, 54),
+            fontWeight: 900,
+            lineHeight: 1.04,
+            textTransform: "uppercase",
+            textShadow: "0px 12px 34px rgba(0,0,0,0.72)"
           }}
         >
-          {card.private_truth}
+          {lineOne}
         </div>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr",
-            gap: 22,
-            marginBottom: 36
-          }}
-        >
-          {[card.tension, card.shift].map((line) => (
-            <div
-              key={line}
-              style={{
-                ...textStyle,
-                fontSize: 32,
-                lineHeight: 1.25,
-                padding: "24px 28px",
-                borderRadius: 28,
-                color: "rgba(255,255,255,0.84)",
-                background: "rgba(0,0,0,0.22)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                backdropFilter: "blur(14px)"
-              }}
-            >
-              {line}
-            </div>
-          ))}
+        <div style={{...textStyle, fontSize: 18, fontWeight: 800, color: "rgba(255,255,255,0.4)", marginTop: 42, marginBottom: 8, letterSpacing: 1}}>
+          THE REASON
+        </div>
+        <div style={{...textStyle, fontSize: sizeFor(lineTwo, 48, 42, 36), fontWeight: 700, lineHeight: 1.16, color: "rgba(255,255,255,0.88)"}}>
+          {lineTwo}
         </div>
 
-        <div
-          style={{
-            marginTop: "auto",
-            padding: "34px 36px",
-            borderRadius: 32,
-            background: "rgba(255,255,255,0.08)",
-            border: "1px solid rgba(255,255,255,0.14)",
-            boxShadow: "0 24px 80px rgba(0,0,0,0.3)"
-          }}
-        >
-          <div
-            style={{
-              ...textStyle,
-              fontSize: 24,
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.58)",
-              letterSpacing: "0.16em",
-              marginBottom: 16
-            }}
-          >
-            Screenshot This
-          </div>
-          <div style={{...textStyle, fontSize: 58, lineHeight: 1.03, marginBottom: 18}}>
-            {card.screenshot_line}
-          </div>
-          <div style={{...textStyle, fontSize: 30, lineHeight: 1.2, color: "rgba(255,255,255,0.72)"}}>
-            {card.share_line}
-          </div>
+        <div style={{...textStyle, fontSize: 18, fontWeight: 800, color: item.accent, opacity: 0.7, marginTop: 34, marginBottom: 8, letterSpacing: 1.5}}>
+          THE SHIFT
         </div>
+        <div style={{...textStyle, fontSize: sizeFor(lineThree, 42, 36, 32), fontWeight: 800, lineHeight: 1.18, color: item.accent}}>
+          {lineThree}
+        </div>
+      </div>
+
+      <div
+        style={{
+          ...textStyle,
+          position: "absolute",
+          left: 64,
+          right: 64,
+          bottom: 84,
+          paddingTop: 22,
+          borderTop: "1px solid rgba(255,255,255,0.18)",
+          fontSize: 30,
+          fontWeight: 800,
+          color: "rgba(255,255,255,0.76)",
+          textTransform: "uppercase"
+        }}
+      >
+        {item.badge}
       </div>
     </AbsoluteFill>
   );
@@ -272,60 +249,65 @@ const SignScene: React.FC<{card: SignCard}> = ({card}) => {
 
 const OutroScene: React.FC<{bundle: HoroscopeBundle}> = ({bundle}) => {
   const frame = useCurrentFrame();
-  const opacity = interpolate(frame, [0, 16, outroFrames - 18, outroFrames], [0, 1, 1, 0], {
+  const opacity = interpolate(frame, [0, 14, outroFrames - 12, outroFrames], [0, 1, 1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp"
   });
+  const cta = bundleCta(bundle);
 
   return (
-    <AbsoluteFill style={{padding: 72, justifyContent: "flex-end", opacity}}>
-      <Background palette={["#080B16", "#2A1336", "#F7A072"]} accentOpacity={0.4} />
-      <div
-        style={{
-          position: "relative",
-          zIndex: 1,
-          padding: "46px 44px",
-          borderRadius: 36,
-          background: "rgba(0,0,0,0.26)",
-          border: "1px solid rgba(255,255,255,0.1)"
-        }}
-      >
-        <div style={{...textStyle, fontSize: 84, fontWeight: 700, lineHeight: 0.96, marginBottom: 20}}>
-          Save this.
-          <br />
-          Send it.
-          <br />
-          Come back to it.
-        </div>
-        <div style={{...textStyle, fontSize: 34, lineHeight: 1.18, color: "rgba(255,255,255,0.74)"}}>
-          {bundle.meta.cta}
-        </div>
+    <AbsoluteFill style={{padding: 74, justifyContent: "center", opacity}}>
+      <div style={{...textStyle, fontSize: 30, fontWeight: 900, color: "#FFB86B", textTransform: "uppercase"}}>
+        Your turn
+      </div>
+      <div style={{...textStyle, marginTop: 24, fontSize: sizeFor(cta, 66, 56, 46), fontWeight: 900, lineHeight: 1.08, textTransform: "uppercase"}}>
+        {cta}
       </div>
     </AbsoluteFill>
   );
 };
 
 export const HoroscopeReel: React.FC<{bundle: HoroscopeBundle}> = ({bundle}) => {
-  const cards = bundle.signs.slice(0, 12);
+  const {durationInFrames} = useVideoConfig();
+  const items = asItems(bundle);
+  const middleFrames = Math.max(1, durationInFrames - introFrames - outroFrames);
+  const framesPerItem = Math.max(75, Math.floor(middleFrames / Math.max(1, items.length)));
 
   return (
     <AbsoluteFill style={{backgroundColor: "#050505"}}>
+      <Background items={items} />
+
+      {bundle._internal_audio_path && (
+        <Audio 
+          src={staticFile(bundle._internal_audio_path)} 
+          loop
+          volume={(f) =>
+            interpolate(
+              f,
+              [durationInFrames - 60, durationInFrames],
+              [1, 0],
+              {extrapolateLeft: "clamp", extrapolateRight: "clamp"}
+            )
+          }
+        />
+      )}
+
       <Sequence from={0} durationInFrames={introFrames}>
-        <TitleScene bundle={bundle} />
+        <TitleScene bundle={bundle} items={items} />
       </Sequence>
 
-      {cards.map((card, index) => (
+      {items.map((item, index) => (
         <Sequence
-          key={card.sign}
-          from={introFrames + index * signFrames}
-          durationInFrames={signFrames}
+          key={`${item.label}-${index}`}
+          from={introFrames + index * framesPerItem}
+          durationInFrames={framesPerItem}
         >
-          <SignScene card={card} />
+          <SignScene item={item} index={index} total={items.length} duration={framesPerItem} />
         </Sequence>
       ))}
 
       <Sequence
-        from={introFrames + cards.length * signFrames}
+        from={introFrames + items.length * framesPerItem}
         durationInFrames={outroFrames}
       >
         <OutroScene bundle={bundle} />
